@@ -69,20 +69,24 @@
     </style>
   </head>
   <body>
-    <div class="card">
-      <img
-        src="https://caronphone.com/_next/image?url=https%3A%2F%2Fstatic.caronphone.com%2Fpublic%2Fbrands%2F16%2F344%2F344.webp&w=3840&q=75"
-        alt="Card Image"
+<div>
+    <h2>Registration Form</h2>
+    <br>
+    <form action="{% url 'register' %}" method="POST">
+      {% csrf_token %}
+      <label for="username">Username:</label><br />
+      <input type="text" id="username" name="username" required /><br /><br />
+      <label for="email">Email:</label><br />
+      <input type="email" id="email" name="email" required /><br /><br />
+      <label for="password">Password:</label><br />
+      <input type="password" id="password" name="password" required
       />
-      <div class="card-content">
-        <h3>Lamborghini</h3>
-        <p>
-          An Italian manufacturer of luxury sports cars and SUVs based in
-          Sant'Agata Bolognese. The company is owned by the Volkswagen Group
-          through its subsidiary Audi.
-        </p>
-        <a href="#" class="btn">Read More</a>
-      </div>
-    </div>
+      <br />
+  <button type="submit">Submit</button>
+    </form>
+    {% if success %}
+  <p style="color: green;">{{ success }}</p>
+{% endif %}
+    <div>
   </body>
 </html>

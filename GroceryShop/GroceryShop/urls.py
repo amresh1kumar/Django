@@ -18,8 +18,12 @@ from django.contrib import admin
 from django.urls import path
 from Grocery_Shop import views
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.Home, name='home'),
-    path('page', views.Page, name='page')
+    path('page', views.Page, name='page'),
+    path('register/', views.register, name='register'),
+    path('api', views.RegisterApiView.as_view(), name='home')
 ]
+
